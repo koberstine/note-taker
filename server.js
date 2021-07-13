@@ -13,9 +13,12 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    let rawData = fs.readFileSync('db.json');
-    let parsedData = JSON.parse(rawData);
-    return (parsedData);
+    fs.readFile('db.json', (err, data) => {
+      if (err) {
+        throw err;
+      }
+      res.json(data);
+    });
 });
 
 app.get('*', (req, res) => {
