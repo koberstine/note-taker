@@ -14,10 +14,6 @@ Application does not currently allow notes to be deleted.
 
 Download source code and run 'npm intall' from main directory.
 
-## Website
-
-https://koberstine.github.io/note-taker/
-
 ## Deployed App
 
 https://secure-tor-32394.herokuapp.com/
