@@ -13,7 +13,7 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    fs.readFile('db.json', (err, data) => {
+    fs.readFile('db/db.json', (err, data) => {
       if (err) {
         throw err;
       }
@@ -27,6 +27,7 @@ app.get('*', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
+    // placeholder for POST route
     res.send('POST request to page');
 });
 
