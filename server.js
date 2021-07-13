@@ -14,13 +14,15 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    fs.readFileSync('db/db.json', (err, data) => {
-      if (err) {
-        throw err;
-      }
-      let parsedData = JSON.parse(data);
-      return parsedData;
-    });
+       console.log("GET")
+       fs.readFile('./db/db.json', "utf8", (err, data) => {
+         if (err) {
+           throw err;
+         }
+         let parsedData = JSON.parse(data);
+         console.log(parsedData)
+         res.json(parsedData)
+       });
 });
  
 app.post('/api/notes', (req, res) => {
