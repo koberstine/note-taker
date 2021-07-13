@@ -13,9 +13,9 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    fs.readFileSync('db.json', function(err, data) {
-        return JSON.parse(data);
-     });
+    let rawData = fs.readFileSync('db.json');
+    let parsedData = JSON.parse(rawData);
+    return (parsedData);
 });
 
 app.get('*', (req, res) => {
