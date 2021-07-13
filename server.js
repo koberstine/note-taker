@@ -25,10 +25,21 @@ app.get('/api/notes', (req, res) => {
        });
 });
  
-app.post('/api/notes', (req, res) => {
-    // placeholder for POST route
-    res.send('POST request to page');
+app.post("/api/notes", function(req, res) {
+    fs.readFile("./db/db.json", function(err, data) {
+        if (err) throw err;
+        let notes = JSON.parse(data);
+        notes.push(req.body);
+        notes.forEach((note, index) => {
+            note.id = index;
+        })
+        fs.writeFile("./db/db.json", JSON.stringify(notes), function(err) {
+            if(err) throw err;
+        })
+    })
+    res.json(req.body)
 });
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
