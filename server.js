@@ -23,7 +23,7 @@ app.get('*', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-    res.send('POST request to page')s
+    res.send('POST request to page');
 });
 
 app.listen(PORT, () => {
